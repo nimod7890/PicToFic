@@ -13,6 +13,10 @@ export const primary = {
   100: "#FFFFFF",
 };
 
+export const secondary = {
+  50: "#F8BBD0",
+  60: "#F48fB1",
+};
 export const neutral = {
   0: "#000000",
   10: "#222327",
