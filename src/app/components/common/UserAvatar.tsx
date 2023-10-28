@@ -1,6 +1,6 @@
 import { Avatar } from "@mui/material";
 import { primary } from "../../styles/colors";
-import { UserSchema } from "../types/user";
+import { UserSchema } from "../../types/user";
 
 type UserAvatarProps = {
   user: UserSchema;
