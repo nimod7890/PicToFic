@@ -6,7 +6,14 @@ import { Layout } from "../constants/globalSizes";
 
 export default function BasePage() {
   return (
-    <Stack sx={{ width: "100%", minHeight: Layout.bodyHeight, backgroundColor: "gray" }}>
+    <Stack
+      sx={{
+        width: "100%",
+        minHeight: Layout.bodyHeight,
+        backgroundColor: "gray",
+        paddingBottom: Layout.appBarHeight,
+      }}
+    >
       <Header />
       <Box sx={{ padding: "10px" }}>
         <Outlet />

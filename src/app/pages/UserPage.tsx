@@ -1,7 +1,12 @@
-import useAppRepository from "../hooks/useAppRepository";
+import ImageCardGrid from "../components/common/image/ImageCardGrid";
+import useUserPage from "../features/user/@hooks/useUserPage";
 
 export default function UserPage() {
-  const { user } = useAppRepository();
+  const { images } = useUserPage();
 
-  return <>{user.accountId}</>;
+  return (
+    <>
+      <ImageCardGrid images={images} />
+    </>
+  );
 }
