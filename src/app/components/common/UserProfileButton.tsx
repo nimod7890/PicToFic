@@ -2,6 +2,7 @@
 import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { UserSchema } from "../types/user";
+import UserAvatar from "./UserAvatar";
 
 /* Todo: use user info */
 
@@ -13,7 +14,7 @@ export default function UserProfileButton({ user }: UserProfileButtonProps) {
 
   return (
     <IconButton onClick={() => navigate(`/${user.accountId}`)}>
-      <UserProfileButton user={user} />
+      <UserAvatar user={user} />
     </IconButton>
   );
 }
