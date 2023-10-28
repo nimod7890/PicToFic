@@ -1,7 +1,10 @@
+import AppLayout from "./AppLayout";
 import AppRegister from "./AppRegister";
 
-function App() {
-  return <AppRegister>app</AppRegister>;
+export default function App() {
+  return (
+    <AppRegister>
+      <AppLayout>app</AppLayout>
+    </AppRegister>
+  );
 }
-
-export default App;
