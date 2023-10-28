@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { BrowserRouter } from "react-router-dom";
-import ReactQuerySetting from "./app/libraries/reactQuery";
-import MuiSetting from "./app/libraries/mui";
+import ReactQuerySetting from "./libraries/reactQuery";
+import MuiSetting from "./libraries/mui";
 
 type AppRegisterProps = { children: ReactNode };
 

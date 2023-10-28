@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import App from "./App";
+import App from "./app/App";
 import momentSetting from "./app/libraries/moment";
 
 function main(afterRender: () => void) {
