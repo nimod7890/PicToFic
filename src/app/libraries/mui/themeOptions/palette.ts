@@ -1,5 +1,5 @@
 import { PaletteOptions } from "@mui/material";
-import { alert, backgroundDefault, error, neutral, primary } from "../../../styles/colors";
+import { alert, backgroundDefault, error, primary, secondary } from "../../../styles/colors";
 
 export const MuiPalette: PaletteOptions = {
   background: {
@@ -10,7 +10,8 @@ export const MuiPalette: PaletteOptions = {
     contrastText: primary[100],
   },
   secondary: {
-    main: neutral[60],
+    main: secondary[60],
+    contrastText: primary[100],
   },
   error: {
     main: error,
