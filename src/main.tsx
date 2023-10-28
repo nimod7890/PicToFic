@@ -1,9 +1,20 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import App from "./App";
+import momentSetting from "./app/libraries/moment";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
+function main(afterRender: () => void) {
+  const rootElement = document.getElementById("root");
+
+  if (!rootElement) {
+    throw Error("#root not found");
+  }
+
+  const root = createRoot(rootElement);
+
+  root.render(<App />);
+  afterRender();
+}
+
+main(() => {
+  momentSetting();
+});
