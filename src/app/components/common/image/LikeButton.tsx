@@ -12,8 +12,16 @@ export default function LikeButton({ isLiked = false, imageId }: LikeButtonProps
   imageId;
 
   return (
-    <IconButton size={"small"} onClick={() => updateLiked(like => !like)} color="secondary">
-      {liked ? <FavoriteBorderRoundedIcon /> : <FavoriteRoundedIcon />}
+    <IconButton
+      onClick={() => updateLiked(like => !like)}
+      color="secondary"
+      sx={{ width: "20px", height: "20px" }}
+    >
+      {liked ? (
+        <FavoriteBorderRoundedIcon sx={{ width: "inherit" }} />
+      ) : (
+        <FavoriteRoundedIcon sx={{ width: "inherit" }} />
+      )}
     </IconButton>
   );
 }
