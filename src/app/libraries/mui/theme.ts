@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-import { MuiComponents, MuiPalette, MuiTypography } from "app/libraries/mui/themeOptions";
+import { MuiPalette, MuiTypography, MuiComponents } from "./themeOptions";
 
 export const theme = createTheme({
   palette: MuiPalette,

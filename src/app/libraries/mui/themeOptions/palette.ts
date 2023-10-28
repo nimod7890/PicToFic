@@ -1,9 +1,9 @@
 import { PaletteOptions } from "@mui/material";
-import { alert, background, error, neutral, primary } from "styles/color";
+import { alert, backgroundDefault, error, neutral, primary } from "../../../styles/colors";
 
 export const MuiPalette: PaletteOptions = {
   background: {
-    default: background,
+    default: backgroundDefault,
   },
   primary: {
     main: primary[60],

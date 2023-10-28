@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
-import { theme } from "app/libraries/mui/theme";
 import { ReactNode } from "react";
+import { theme } from "./theme";
 
 type MuiSettingProps = {
   children: ReactNode;
