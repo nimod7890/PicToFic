@@ -4,8 +4,9 @@ import CreatePostButton from "./CreatePostButton";
 import UserProfileButton from "../../common/UserProfileButton";
 import useAppRepository from "../../../hooks/useAppRepository";
 import HomeButton from "../../common/HomeButton";
+import { Layout } from "../../../constants/globalSizes";
 
-export default function BottomAppbar() {
+export default function Appbar() {
   const { user } = useAppRepository();
 
   return (
@@ -16,7 +17,7 @@ export default function BottomAppbar() {
         bottom: 0,
         backgroundColor: primary[99],
         justifyContent: "center",
-        height: "50px",
+        height: Layout.appBarHeight,
       }}
     >
       <Toolbar sx={{ minHeight: "50px", height: "50px" }}>
