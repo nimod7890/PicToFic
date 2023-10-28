@@ -1,9 +1,9 @@
 import { AppBar, Box, Toolbar } from "@mui/material";
 import { primary } from "../../../styles/colors";
 import CreatePostButton from "./CreatePostButton";
-import Menu from "../../common/Menu";
 import UserProfileButton from "../../common/UserProfileButton";
 import useAppRepository from "../../../hooks/useAppRepository";
+import HomeButton from "../../common/HomeButton";
 
 export default function BottomAppbar() {
   const { user } = useAppRepository();
@@ -20,7 +20,7 @@ export default function BottomAppbar() {
       }}
     >
       <Toolbar sx={{ minHeight: "50px", height: "50px" }}>
-        <Menu />
+        <HomeButton />
         <CreatePostButton />
         <Box sx={{ flexGrow: 1 }} />
         <UserProfileButton user={user} />
