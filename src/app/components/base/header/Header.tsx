@@ -1,31 +1,33 @@
-import { Slide, Stack, useScrollTrigger } from "@mui/material";
-import { primary } from "../../../styles/colors";
+import { AppBar, Slide, Toolbar, useScrollTrigger } from "@mui/material";
 import Logo from "../../common/Logo";
 import React from "react";
 import Menu from "../../common/Menu";
 import { Layout } from "../../../constants/globalSizes";
+import { backgroundDefault } from "../../../styles/colors";
 
 export default function Header() {
   return (
     <HideOnScroll>
-      <Stack
-        direction="row"
-        spacing={3}
+      <AppBar
+        position="fixed"
         sx={{
+          top: 0,
           width: "100%",
           height: Layout.appBarHeight,
-          backgroundColor: primary[99],
+          backgroundColor: backgroundDefault,
           position: "sticky",
-          top: 0,
-          paddingX: "20px",
-          justifyContent: "space-between",
-          alignItems: "center",
-          zIndex: 1000,
+          justifyContent: "center",
         }}
       >
-        <Logo />
-        <Menu />
-      </Stack>
+        <Toolbar
+          sx={{
+            justifyContent: "space-between",
+          }}
+        >
+          <Logo />
+          <Menu />
+        </Toolbar>
+      </AppBar>
     </HideOnScroll>
   );
 }

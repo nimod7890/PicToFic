@@ -10,7 +10,6 @@ export default function BasePage() {
       sx={{
         width: "100%",
         minHeight: Layout.bodyHeight,
-        backgroundColor: "gray",
         paddingBottom: Layout.appBarHeight,
       }}
     >

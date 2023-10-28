@@ -1,5 +1,5 @@
 import { AppBar, Box, Toolbar } from "@mui/material";
-import { primary } from "../../../styles/colors";
+import { backgroundDefault } from "../../../styles/colors";
 import CreatePostButton from "./CreatePostButton";
 import UserProfileButton from "../../common/UserProfileButton";
 import useAppRepository from "../../../hooks/useAppRepository";
@@ -15,12 +15,12 @@ export default function Appbar() {
       sx={{
         top: "auto",
         bottom: 0,
-        backgroundColor: primary[99],
+        backgroundColor: backgroundDefault,
         justifyContent: "center",
         height: Layout.appBarHeight,
       }}
     >
-      <Toolbar sx={{ minHeight: "50px", height: "50px" }}>
+      <Toolbar>
         <HomeButton />
         <CreatePostButton />
         <Box sx={{ flexGrow: 1 }} />
