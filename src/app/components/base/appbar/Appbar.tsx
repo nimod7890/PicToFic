@@ -1,7 +1,7 @@
 import { AppBar, Box, Toolbar } from "@mui/material";
 import { backgroundDefault } from "../../../styles/colors";
 import CreatePostButton from "./CreatePostButton";
-import UserProfileButton from "../../common/UserProfileButton";
+import UserProfileButton from "../../common/user/UserProfileButton";
 import useAppRepository from "../../../hooks/useAppRepository";
 import HomeButton from "../../common/HomeButton";
 import { Layout } from "../../../constants/globalSizes";

@@ -1,8 +1,8 @@
 import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { UserSchema } from "../../types/user";
+import { UserSchema } from "../../../types/user";
 import UserAvatar from "./UserAvatar";
-import { getUserPagePath } from "../../routes/routePath";
+import { getUserPagePath } from "../../../routes/routePath";
 
 type UserProfileButtonProps = {
   user: UserSchema;
