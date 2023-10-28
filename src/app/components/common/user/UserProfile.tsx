@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Paper, Stack, Typography } from "@mui/material";
 import { UserSchema } from "../../../types/user";
 import UserAvatar from "./UserAvatar";
 
@@ -7,6 +7,7 @@ type UserProfileProps = { user: UserSchema };
 export default function UserProfile({ user }: UserProfileProps) {
   return (
     <Stack
+      component={Paper}
       direction="row"
       spacing={2}
       sx={{ padding: "10px", alignItems: "center", justifyContent: "space-between" }}
