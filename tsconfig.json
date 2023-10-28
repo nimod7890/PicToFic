@@ -13,12 +13,19 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    /* custom */
+    // "target": "ES6",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    // "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "baseUrl": "./src"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
