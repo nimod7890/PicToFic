@@ -9,7 +9,7 @@ type ImageCardProps = {
 
 export default function ImageDescriptionCard({ image }: ImageCardProps) {
   return (
-    <Card sx={{ width: "300px" }}>
+    <Card>
       <CardContent sx={{ display: "flex", flexDirection: "column" }}>
         <Typography>{image.description}</Typography>
         <Stack direction="row" alignItems={"center"} alignSelf={"end"} spacing={"1px"}>
