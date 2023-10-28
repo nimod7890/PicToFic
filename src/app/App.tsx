@@ -1,10 +1,13 @@
 import AppLayout from "./AppLayout";
 import AppRegister from "./AppRegister";
+import AppRouter from "./routes/AppRouter";
 
 export default function App() {
   return (
     <AppRegister>
-      <AppLayout>app</AppLayout>
+      <AppLayout>
+        <AppRouter/>
+      </AppLayout>
     </AppRegister>
   );
 }
