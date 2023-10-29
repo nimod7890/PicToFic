@@ -1,22 +1,30 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import RoutePath, { getUserPagePath } from "./routePath";
-import useAppRepository from "../hooks/useAppRepository";
+import { Route, Routes } from "react-router-dom";
+import RoutePath from "./routePath";
 import BasePage from "../pages/BasePage";
 import HomePage from "../pages/HomePage";
 import UserPage from "../pages/UserPage";
+import useAuthStorage from "../hooks/useAuthStorage";
 
 export default function AppRouter() {
-  /* Todo: if not token, show login page*/
-  const { user } = useAppRepository();
+  const { isEmptyToken } = useAuthStorage();
 
   return (
     <Routes>
-      <Route path={RoutePath.Index} element={<BasePage />}>
-        <Route path={RoutePath.Home} element={<HomePage />} />
-        <Route path={getUserPagePath(user.id)} element={<UserPage />} />
-      </Route>
-      <Route path={RoutePath.NotFoundError} element={<Navigate to={RoutePath.NotFoundError} />} />
-      <Route path="*" element={"404 NON FOUND"} />
+      {isEmptyToken ? (
+        <>
+          {/* if token does not exists */}
+          <Route path={RoutePath.Login} element={"login page"} />
+          <Route path="*" element={<UserPage />} />
+        </>
+      ) : (
+        <>
+          {/* if token exists */}
+          <Route path={RoutePath.Index} element={<BasePage />}>
+            <Route path={RoutePath.Home} element={<HomePage />} />
+            <Route path="*" element={<UserPage />} />
+          </Route>
+        </>
+      )}
     </Routes>
   );
 }

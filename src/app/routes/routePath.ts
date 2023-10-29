@@ -1,13 +1,14 @@
 enum RoutePath {
   Index = "/",
   Home = "/",
-  User = "/:userAccountId",
 
-  NotFoundError = "/404",
+  User = "/:userId",
+
+  Login = "/",
 }
 
 export default RoutePath;
 
 export function getUserPagePath(userId: string) {
-  return RoutePath.User.replace(":userAccountId", String(userId));
+  return RoutePath.User.replace(":userId", String(userId));
 }

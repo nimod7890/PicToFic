@@ -9,5 +9,5 @@ export default function useUserPage() {
   const { user } = useGetUserByUserId({ id: userId });
   const { posts } = useGetPostsByUserId({ userId });
 
-  return { user, posts, isError: Boolean(user) };
+  return { user, posts, isError: !user };
 }
