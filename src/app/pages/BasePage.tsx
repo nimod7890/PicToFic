@@ -14,7 +14,7 @@ export default function BasePage() {
       }}
     >
       <Header />
-      <Box sx={{ padding: "10px" }}>
+      <Box sx={{ padding: "50px 10px 100px 10px" }}>
         <Outlet />
       </Box>
       <Appbar />

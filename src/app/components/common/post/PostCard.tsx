@@ -23,7 +23,9 @@ export default function PostCard({ post }: PostCardProps) {
           {post.summary}
         </Box>
       </CardContent>
-      <CardActions sx={{ padding: "8px 1rem 0 1rem", justifyContent: "space-between" }}>
+      <CardActions
+        sx={{ padding: "8px 1rem 0 1rem", justifyContent: "space-between", gap: "1rem" }}
+      >
         <Stack direction="row" spacing={"5px"} alignItems={"center"}>
           <LikeButton isLiked={post.isLiked} postId={post.id} />
           <Typography variant="caption" color={secondary[50]}>

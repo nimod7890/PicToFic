@@ -8,7 +8,7 @@ export default function UserPage() {
 
   return (
     <Stack sx={{ alignItems: "center" }}>
-      <Stack spacing={"10px"} sx={{ maxWidth: "1000px" }}>
+      <Stack spacing={"10px"} sx={{ minWidth: "700px", maxWidth: "1000px" }}>
         <UserProfile user={user} />
         <PostCardGrid posts={posts} />
       </Stack>

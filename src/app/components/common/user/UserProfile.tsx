@@ -10,7 +10,7 @@ export default function UserProfile({ user }: UserProfileProps) {
       component={Paper}
       direction="row"
       spacing={2}
-      sx={{ padding: "10px", alignItems: "center", justifyContent: "space-between" }}
+      sx={{ padding: "1rem", alignItems: "center", justifyContent: "space-between" }}
     >
       <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
         <UserAvatar user={user} configs={{ length: "50px" }} />
