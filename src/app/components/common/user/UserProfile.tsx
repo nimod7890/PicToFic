@@ -16,7 +16,7 @@ export default function UserProfile({ user }: UserProfileProps) {
         <UserAvatar user={user} configs={{ length: "50px" }} />
         <Stack>
           <Typography variant="h5">{user.name}</Typography>
-          <Typography>@{user.accountId}</Typography>
+          <Typography>@{user.id}</Typography>
         </Stack>
       </Stack>
       {/* Todo additional info */}

@@ -1,9 +1,8 @@
 import { z } from "zod";
 
 export const userSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   name: z.string(),
-  accountId: z.string(),
 });
 
 export const userListSchema = z.array(userSchema);
