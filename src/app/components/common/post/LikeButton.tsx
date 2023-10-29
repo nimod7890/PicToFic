@@ -5,11 +5,11 @@ import {
 } from "@mui/icons-material";
 import { useState } from "react";
 
-type LikeButtonProps = { isLiked?: boolean; imageId: number };
+type LikeButtonProps = { isLiked?: boolean; postId: number };
 
-export default function LikeButton({ isLiked = false, imageId }: LikeButtonProps) {
+export default function LikeButton({ isLiked = false,  postId }: LikeButtonProps) {
   const [liked, updateLiked] = useState<boolean>(isLiked);
-  imageId;
+  postId;
 
   return (
     <IconButton
