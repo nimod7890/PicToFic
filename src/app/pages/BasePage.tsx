@@ -15,7 +15,7 @@ export default function BasePage() {
     >
       <Header />
       <Stack sx={{ padding: "50px 10px 100px 10px", alignItems: "center" }}>
-        <Stack spacing={"10px"} sx={{ minWidth: "700px", maxWidth: "1000px" }}>
+        <Stack spacing={"10px"} sx={{ minWidth: "700px", maxWidth: "1000px", width: "100%" }}>
           <Outlet />
         </Stack>
       </Stack>
