@@ -3,7 +3,6 @@ enum RoutePath {
   Home = "/",
   User = "/:userAccountId",
 
-  Login = "/login",
   NotFoundError = "/404",
 }
 
