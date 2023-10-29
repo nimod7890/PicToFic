@@ -1,14 +1,23 @@
-import { Stack } from "@mui/material";
-import BottomAppbar from "../components/base/appbar/BottomAppbar";
+import { Box, Stack } from "@mui/material";
+import Appbar from "../components/base/appbar/Appbar";
 import Header from "../components/base/header/Header";
 import { Outlet } from "react-router-dom";
+import { Layout } from "../constants/globalSizes";
 
 export default function BasePage() {
   return (
-    <Stack sx={{ width: "100%", height: "100%", backgroundColor: "gray" }}>
+    <Stack
+      sx={{
+        width: "100%",
+        minHeight: Layout.bodyHeight,
+        paddingBottom: Layout.appBarHeight,
+      }}
+    >
       <Header />
-      <Outlet />
-      <BottomAppbar />
+      <Box sx={{ padding: "50px 10px 100px 10px" }}>
+        <Outlet />
+      </Box>
+      <Appbar />
     </Stack>
   );
 }
