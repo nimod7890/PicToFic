@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import Appbar from "../components/base/appbar/Appbar";
 import Header from "../components/base/header/Header";
 import { Outlet } from "react-router-dom";
@@ -14,9 +14,11 @@ export default function BasePage() {
       }}
     >
       <Header />
-      <Box sx={{ padding: "50px 10px 100px 10px" }}>
-        <Outlet />
-      </Box>
+      <Stack sx={{ padding: "50px 10px 100px 10px", alignItems: "center" }}>
+        <Stack spacing={"10px"} sx={{ minWidth: "700px", maxWidth: "1000px" }}>
+          <Outlet />
+        </Stack>
+      </Stack>
       <Appbar />
     </Stack>
   );
