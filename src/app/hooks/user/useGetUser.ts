@@ -1,16 +1,6 @@
-import { UserSchema } from "../../types/user";
-import useAppRepository from "../useAppRepository";
+import { getUser } from "../../api/user/getUser";
 
-type useGetUserProps = { id: string };
-
-export default function useGetUser({ id }: useGetUserProps) {
-  const { user: myAccount } = useAppRepository();
-  const user = myAccount.id === id ? myAccount : mockAnotherUser;
-
+export default function useGetUser() {
+  const user = getUser();
   return { user };
 }
-
-const mockAnotherUser: UserSchema = {
-  id: "user1_id",
-  name: "user1",
-};

@@ -1,10 +1,7 @@
-import { UserSchema } from "../types/user";
-
-const mockMyAccount: UserSchema = {
-  id: "nim_od",
-  name: "bomin",
-};
+import { getUser } from "../api/user/getUser";
 
 export default function useAppRepository() {
-  return { user: mockMyAccount };
+  const user = getUser();
+
+  return { user };
 }
