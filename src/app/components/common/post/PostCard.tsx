@@ -9,12 +9,12 @@ type PostCardProps = {
 
 export default function PostCard({ post }: PostCardProps) {
   return (
-    <Card sx={{ padding: "1rem 0 12px 0" }}>
-      <CardContent sx={{ padding: 0 }}>
+    <Card sx={{ paddingY: "12px" }}>
+      <CardContent sx={{ paddingX: 0 }}>
         <Box
           sx={{
             paddingX: "1rem",
-            height: "240px",
+            maxHeight: "240px",
             overflow: "scroll",
             textOverflow: "ellipsis",
             wordBreak: "break-all",
