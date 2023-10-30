@@ -1,10 +1,10 @@
-import { Box, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import Appbar from "../components/base/appbar/Appbar";
 import Header from "../components/base/header/Header";
-import { Outlet } from "react-router-dom";
 import { Layout } from "../constants/globalSizes";
+import MainContent from "../components/base/MainContent";
 
-export default function BasePage() {
+export default function AuthenticatedBasePage() {
   return (
     <Stack
       sx={{
@@ -14,9 +14,7 @@ export default function BasePage() {
       }}
     >
       <Header />
-      <Box sx={{ padding: "50px 10px 100px 10px" }}>
-        <Outlet />
-      </Box>
+      <MainContent />
       <Appbar />
     </Stack>
   );

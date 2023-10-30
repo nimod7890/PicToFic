@@ -12,7 +12,7 @@ export default function UserProfileButton({ user }: UserProfileButtonProps) {
   const navigate = useNavigate();
 
   return (
-    <IconButton onClick={() => navigate(getUserPagePath(user.accountId))}>
+    <IconButton onClick={() => navigate(getUserPagePath(user.id))}>
       <UserAvatar user={user} />
     </IconButton>
   );
