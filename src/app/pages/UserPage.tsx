@@ -1,4 +1,4 @@
-import PostCardGrid from "../components/common/post/PostCardGrid";
+import GridPostCardContainer from "../components/common/post/card/GridPostCardContainer";
 import useUserPage from "../features/user/@hooks/useUserPage";
 import UserProfile from "../components/common/user/UserProfile";
 import NotFoundError from "../components/common/NotFoundError";
@@ -13,7 +13,7 @@ export default function UserPage() {
   return (
     <>
       <UserProfile user={user} />
-      <PostCardGrid posts={posts} />
+      <GridPostCardContainer posts={posts} />
     </>
   );
 }
