@@ -1,12 +1,12 @@
-import MansonryPostCardContainer from "../components/common/post/card/MansonryPostCardContainer";
+import MansonryStoryCardContainer from "../components/common/story/card/MansonryStoryCardContainer";
 import useHomePage from "../features/home/@hooks/useHomePage";
 
 export default function HomePage() {
-  const { posts } = useHomePage();
+  const { storyList } = useHomePage();
 
   return (
     <>
-      <MansonryPostCardContainer posts={posts} />
+      <MansonryStoryCardContainer storyList={storyList} />
     </>
   );
 }

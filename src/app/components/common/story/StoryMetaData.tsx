@@ -1,11 +1,11 @@
 import { Stack, Typography } from "@mui/material";
-import { neutral } from "../../../../styles/colors";
-import { SummaryPostSchema } from "../../../../types/post";
-import LikeButton from "../LikeButton";
+import { neutral } from "../../../styles/colors";
+import { StoryCardSchema } from "../../../types/story";
+import LikeButton from "./LikeButton";
 
-type PostMetaDataProps = { post: SummaryPostSchema };
+type StoryMetaDataProps = { story: StoryCardSchema };
 
-export default function PostMetaData({ post }: PostMetaDataProps) {
+export default function StoryMetaData({ story }: StoryMetaDataProps) {
   return (
     <Stack
       direction="row"
@@ -16,9 +16,9 @@ export default function PostMetaData({ post }: PostMetaDataProps) {
         paddingRight: "2px",
       }}
     >
-      <LikeButton post={post} />
+      <LikeButton story={story} />
       <Typography variant="caption" color={neutral[70]}>
-        {post.picturedAt}
+        {story.picturedAt}
       </Typography>
     </Stack>
   );

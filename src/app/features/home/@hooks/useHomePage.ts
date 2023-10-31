@@ -1,7 +1,7 @@
-import useGetPosts from "../../../hooks/post/useGetPosts";
+import useGetStoryList from "../../../hooks/story/useGetStoryList";
 
 export default function useHomePage() {
-  const posts = useGetPosts();
+  const storyList = useGetStoryList();
 
-  return { posts };
+  return { storyList };
 }

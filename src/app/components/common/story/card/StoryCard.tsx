@@ -1,13 +1,13 @@
 import { Box, Card } from "@mui/material";
-import { SummaryPostSchema } from "../../../../types/post";
-import PostMetaData from "./PostMetaData";
+import { StoryCardSchema } from "../../../../types/story";
+import StoryMetaData from "../StoryMetaData";
 
-type PostCardProps = {
-  post: SummaryPostSchema;
+type StoryCardProps = {
+  story: StoryCardSchema;
   type?: "grid" | "mansonry";
 };
 
-export default function PostCard({ post, type = "mansonry" }: PostCardProps) {
+export default function StoryCard({ story, type = "mansonry" }: StoryCardProps) {
   return (
     <Card sx={{ padding: "1rem", paddingTop: "2rem" }} elevation={3}>
       {type === "grid" ? (
@@ -17,21 +17,21 @@ export default function PostCard({ post, type = "mansonry" }: PostCardProps) {
             height: contentHeight,
           }}
         >
-          {post.summary}
+          {story.summary}
         </Box>
       ) : (
         <Box
           sx={{
             ...textContainerStyles,
-            fontSize: getFontSizeFromTextLength(post.summary.length),
-            fontWeight: getFontWeightFromTextLength(post.summary.length),
+            fontSize: getFontSizeFromTextLength(story.summary.length),
+            fontWeight: getFontWeightFromTextLength(story.summary.length),
             maxHeight: contentHeight,
           }}
         >
-          {post.summary}
+          {story.summary}
         </Box>
       )}
-      <PostMetaData post={post} />
+      <StoryMetaData story={story} />
     </Card>
   );
 }
