@@ -1,3 +1,3 @@
 export default function useAuthStorage() {
-  return { isEmptyToken: true };
+  return { isEmptyToken: false };
 }
