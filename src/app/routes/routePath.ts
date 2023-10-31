@@ -13,6 +13,6 @@ export default RoutePath;
 export function getUserPagePath(userId: string) {
   return RoutePath.User.replace(":userId", String(userId));
 }
-export function getStoryPagePath(storyId: string) {
+export function getStoryPagePath(storyId: number) {
   return RoutePath.Story.replace(":storyId", String(storyId));
 }

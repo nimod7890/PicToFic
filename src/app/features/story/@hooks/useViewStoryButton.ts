@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { getStoryPagePath } from "../../../routes/routePath";
 
-export default function useViewStoryButton({ storyId }: { storyId: string }) {
+export default function useViewStoryButton({ storyId }: { storyId: number }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = useCallback(() => {
