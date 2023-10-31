@@ -1,27 +1,26 @@
-import { IconButton } from "@mui/material";
+import { Button } from "@mui/material";
 import {
   FavoriteBorderRounded as FavoriteBorderRoundedIcon,
   FavoriteRounded as FavoriteRoundedIcon,
 } from "@mui/icons-material";
 import { useState } from "react";
+import { SummaryPostSchema } from "../../../types/post";
 
-type LikeButtonProps = { isLiked?: boolean; postId: number };
+type LikeButtonProps = {
+  post: SummaryPostSchema;
+};
 
-export default function LikeButton({ isLiked = false,  postId }: LikeButtonProps) {
-  const [liked, updateLiked] = useState<boolean>(isLiked);
-  postId;
+export default function LikeButton({ post }: LikeButtonProps) {
+  const [liked, updateLiked] = useState<boolean>(post.isLiked);
 
   return (
-    <IconButton
-      onClick={() => updateLiked(like => !like)}
+    <Button
       color="secondary"
-      sx={{ width: "20px", height: "20px" }}
+      onClick={() => updateLiked(liked => !liked)}
+      startIcon={liked ? <FavoriteBorderRoundedIcon /> : <FavoriteRoundedIcon />}
+      sx={{ padding: "1px 6px", minWidth: "max-content" }}
     >
-      {liked ? (
-        <FavoriteBorderRoundedIcon sx={{ width: "inherit" }} />
-      ) : (
-        <FavoriteRoundedIcon sx={{ width: "inherit" }} />
-      )}
-    </IconButton>
+      {post.likesCount}
+    </Button>
   );
 }

@@ -8,7 +8,7 @@ export default function HomeButton() {
 
   return (
     <IconButton onClick={() => navigate(RoutePath.Home)}>
-      <img src={logo} height={"30px"} />
+      <img src={logo} height={"100%"} />
     </IconButton>
   );
 }
