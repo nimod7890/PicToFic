@@ -43,8 +43,7 @@ export const mockStoryCardList: StoryCardListSchema = [
 export const mockStoryList: StoryListSchema = mockStoryCardList.map(storyCard => ({
   ...storyCard,
   description: "this is description" + storyCard.summary,
-  imageUrl:
-    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.petage.com%2Fkitten-care-101%2F&psig=AOvVaw3FElfsTFiI7B21AuAFKOrE&ust=1698837031637000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMDds6CToIIDFQAAAAAdAAAAABAE",
+  imageUrl: "https://via.placeholder.com/150",
   likes: mockUsers,
   createdBy: storyCard.id % 2 ? mockMyAccount : mockAnotherUser,
   createdAt: moment(new Date()).format("LLL"),
