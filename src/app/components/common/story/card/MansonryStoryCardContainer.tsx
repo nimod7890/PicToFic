@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { StoryCardListSchema } from "../../../../types/story";
 import StoryCard from "./StoryCard";
 import { Masonry } from "@mui/lab";
+import ViewStoryButton from "../../../../features/story/ui/ViewStoryButton";
 
 type MansonryStoryCardContainerProps = {
   storyList: StoryCardListSchema;
@@ -29,7 +30,9 @@ export default function MansonryStoryCardContainer({ storyList }: MansonryStoryC
   return (
     <Masonry columns={columns} spacing={3}>
       {storyList.map((story, index) => (
-        <StoryCard story={story} key={index} />
+        <ViewStoryButton storyId={story.id} key={index}>
+          <StoryCard story={story} />
+        </ViewStoryButton>
       ))}
     </Masonry>
   );
