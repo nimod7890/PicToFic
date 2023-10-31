@@ -1,10 +1,10 @@
-import GridPostCardContainer from "../components/common/post/card/GridPostCardContainer";
+import GridPostCardContainer from "../components/common/story/card/GridStoryCardContainer";
 import useUserPage from "../features/user/@hooks/useUserPage";
 import UserProfile from "../components/common/user/UserProfile";
 import NotFoundError from "../components/common/NotFoundError";
 
 export default function UserPage() {
-  const { user, posts, isError } = useUserPage();
+  const { user, storyList, isError } = useUserPage();
 
   if (isError || !user) {
     return <NotFoundError />;
@@ -13,7 +13,7 @@ export default function UserPage() {
   return (
     <>
       <UserProfile user={user} />
-      <GridPostCardContainer posts={posts} />
+      <GridPostCardContainer storyList={storyList} />
     </>
   );
 }

@@ -2,7 +2,7 @@ import { Fab } from "@mui/material";
 import { primary } from "../../../styles/colors";
 import { AddRounded as AddRoundedIcon } from "@mui/icons-material";
 
-export default function CreatePostButton() {
+export default function CreateStoryButton() {
   return (
     <Fab
       color="primary"

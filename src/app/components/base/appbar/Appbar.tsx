@@ -1,6 +1,6 @@
 import { AppBar, Box, Toolbar } from "@mui/material";
 import { backgroundDefault } from "../../../styles/colors";
-import CreatePostButton from "./CreatePostButton";
+import CreateStoryButton from "./CreateStoryButton";
 import UserProfileButton from "../../common/user/UserProfileButton";
 import useAppRepository from "../../../hooks/useAppRepository";
 import HomeButton from "../../common/HomeButton";
@@ -22,7 +22,7 @@ export default function Appbar() {
     >
       <Toolbar>
         <HomeButton />
-        <CreatePostButton />
+        <CreateStoryButton />
         <Box sx={{ flexGrow: 1 }} />
         <UserProfileButton user={user} />
       </Toolbar>

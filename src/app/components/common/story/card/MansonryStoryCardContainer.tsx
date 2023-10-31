@@ -1,15 +1,15 @@
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
 import { useMemo } from "react";
-import { SummaryPostListSchema } from "../../../../types/post";
-import PostCard from "./PostCard";
+import { StoryCardListSchema } from "../../../../types/story";
+import StoryCard from "./StoryCard";
 import { Masonry } from "@mui/lab";
 
-type MansonryPostCardContainerProps = {
-  posts: SummaryPostListSchema;
+type MansonryStoryCardContainerProps = {
+  storyList: StoryCardListSchema;
 };
 
-export default function MansonryPostCardContainer({ posts }: MansonryPostCardContainerProps) {
+export default function MansonryStoryCardContainer({ storyList }: MansonryStoryCardContainerProps) {
   const theme = useTheme();
 
   const isXs = useMediaQuery(theme.breakpoints.between("xs", "sm"));
@@ -28,8 +28,8 @@ export default function MansonryPostCardContainer({ posts }: MansonryPostCardCon
 
   return (
     <Masonry columns={columns} spacing={3}>
-      {posts.map((post, index) => (
-        <PostCard post={post} key={index} />
+      {storyList.map((story, index) => (
+        <StoryCard story={story} key={index} />
       ))}
     </Masonry>
   );

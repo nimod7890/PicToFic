@@ -4,10 +4,10 @@ import {
   FavoriteRounded as FavoriteRoundedIcon,
 } from "@mui/icons-material";
 import { useState } from "react";
-import { SummaryPostSchema } from "../../../types/post";
+import { StoryCardSchema } from "../../../types/story";
 
 type LikeButtonProps = {
-  post: SummaryPostSchema;
+  post: StoryCardSchema;
 };
 
 export default function LikeButton({ post }: LikeButtonProps) {
