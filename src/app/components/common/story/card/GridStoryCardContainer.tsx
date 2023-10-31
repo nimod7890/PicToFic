@@ -6,7 +6,7 @@ type GridStoryCardContainerProps = {
   storyList: StoryCardListSchema;
 };
 
-export default function GridPostCardContainer({ storyList }: GridStoryCardContainerProps) {
+export default function GridStoryCardContainer({ storyList }: GridStoryCardContainerProps) {
   return (
     <Grid container spacing={2} columns={6} sx={{ left: "-1rem", position: "relative" }}>
       {storyList.map((story, index) => (

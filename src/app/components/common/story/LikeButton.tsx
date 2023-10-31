@@ -7,11 +7,11 @@ import { useState } from "react";
 import { StoryCardSchema } from "../../../types/story";
 
 type LikeButtonProps = {
-  post: StoryCardSchema;
+  story: StoryCardSchema;
 };
 
-export default function LikeButton({ post }: LikeButtonProps) {
-  const [liked, updateLiked] = useState<boolean>(post.isLiked);
+export default function LikeButton({ story }: LikeButtonProps) {
+  const [liked, updateLiked] = useState<boolean>(story.isLiked);
 
   return (
     <Button
@@ -20,7 +20,7 @@ export default function LikeButton({ post }: LikeButtonProps) {
       startIcon={liked ? <FavoriteBorderRoundedIcon /> : <FavoriteRoundedIcon />}
       sx={{ padding: "1px 6px", minWidth: "max-content" }}
     >
-      {post.likesCount}
+      {story.likesCount}
     </Button>
   );
 }

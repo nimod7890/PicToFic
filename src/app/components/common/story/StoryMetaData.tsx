@@ -16,7 +16,7 @@ export default function StoryMetaData({ story }: StoryMetaDataProps) {
         paddingRight: "2px",
       }}
     >
-      <LikeButton post={story} />
+      <LikeButton story={story} />
       <Typography variant="caption" color={neutral[70]}>
         {story.picturedAt}
       </Typography>
