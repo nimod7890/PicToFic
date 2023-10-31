@@ -5,7 +5,7 @@ export const mockMyAccount: UserSchema = {
   name: "bomin",
 };
 
-const mockAnotherUser: UserSchema = {
+export const mockAnotherUser: UserSchema = {
   id: "user1_id",
   name: "user1",
 };
