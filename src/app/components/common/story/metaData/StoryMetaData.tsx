@@ -1,6 +1,6 @@
-import { Stack, Typography } from "@mui/material";
-import { neutral } from "../../../styles/colors";
-import { StoryCardSchema } from "../../../types/story";
+import { Stack, Tooltip, Typography, Zoom } from "@mui/material";
+import { neutral } from "../../../../styles/colors";
+import { StoryCardSchema } from "../../../../types/story";
 import LikeButton from "./LikeButton";
 
 type StoryMetaDataProps = { story: StoryCardSchema };
@@ -17,9 +17,11 @@ export default function StoryMetaData({ story }: StoryMetaDataProps) {
       }}
     >
       <LikeButton story={story} />
-      <Typography variant="caption" color={neutral[70]}>
-        {story.picturedAt}
-      </Typography>
+      <Tooltip title="Captured at" enterDelay={1000} TransitionComponent={Zoom}>
+        <Typography variant="caption" color={neutral[70]}>
+          {story.picturedAt}
+        </Typography>
+      </Tooltip>
     </Stack>
   );
 }
