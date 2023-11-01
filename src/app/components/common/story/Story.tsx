@@ -1,17 +1,17 @@
-import { Box } from "@mui/material";
+import { Stack } from "@mui/material";
 import useGetStory from "../../../hooks/story/useGetStory";
-import StoryCard from "./card/StoryCard";
+import StoryBook from "./book/StoryBook.tsx";
 
-type StoryContentProps = { storyId: number };
+type StoryContentProps = {
+  storyId: number;
+};
 
 export default function Story({ storyId }: StoryContentProps) {
   const { story } = useGetStory({ storyId });
 
   return (
-    <>
-      <Box width="400px">
-        <StoryCard story={story} />
-      </Box>
-    </>
+    <Stack rowGap={3}>
+      <StoryBook story={story} />
+    </Stack>
   );
 }
