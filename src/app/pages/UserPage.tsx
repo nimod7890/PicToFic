@@ -1,19 +1,17 @@
-import GridStoryCardContainer from "../components/common/story/card/GridStoryCardContainer";
 import useUserPage from "../features/user/@hooks/useUserPage";
 import UserProfile from "../components/common/user/UserProfile";
-import NotFoundError from "../components/common/NotFoundError";
+import UserContentsTab from "../components/user/UserContentsTab";
 
 export default function UserPage() {
-  const { user, storyList, isError } = useUserPage();
-
-  if (isError || !user) {
-    return <NotFoundError />;
+  const { user } = useUserPage();
+  if (!user) {
+    return null;
   }
 
   return (
     <>
       <UserProfile user={user} />
-      <GridStoryCardContainer storyList={storyList} />
+      <UserContentsTab userId={user.id} />
     </>
   );
 }
