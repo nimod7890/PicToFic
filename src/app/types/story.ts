@@ -13,13 +13,15 @@ export const storyCardListSchema = z.array(storyCardSchema);
 export type StoryCardSchema = z.infer<typeof storyCardSchema>;
 export type StoryCardListSchema = z.infer<typeof storyCardListSchema>;
 
-const StorySchema = z.object({
+const storySchema = z.object({
   ...storyCardSchema.shape,
   description: z.string(),
   imageUrl: z.string(),
   likes: userListSchema,
   createdBy: userSchema,
   createdAt: z.string(),
-  updatedAt: z.string().optional(),
+  updatedAt: z.string().optional().nullable(),
 });
-export type StorySchema = z.infer<typeof StorySchema>;
+export const storyListSchema = z.array(storySchema);
+export type StorySchema = z.infer<typeof storySchema>;
+export type StoryListSchema = z.infer<typeof storyListSchema>;

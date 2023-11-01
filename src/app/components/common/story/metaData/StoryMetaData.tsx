@@ -1,7 +1,7 @@
-import { Stack, Typography } from "@mui/material";
-import { neutral } from "../../../styles/colors";
-import { StoryCardSchema } from "../../../types/story";
+import { Stack } from "@mui/material";
+import { StoryCardSchema } from "../../../../types/story";
 import LikeButton from "./LikeButton";
+import PicturedDate from "./PicturedDate";
 
 type StoryMetaDataProps = { story: StoryCardSchema };
 
@@ -17,9 +17,7 @@ export default function StoryMetaData({ story }: StoryMetaDataProps) {
       }}
     >
       <LikeButton story={story} />
-      <Typography variant="caption" color={neutral[70]}>
-        {story.picturedAt}
-      </Typography>
+      <PicturedDate date={story.picturedAt} />
     </Stack>
   );
 }

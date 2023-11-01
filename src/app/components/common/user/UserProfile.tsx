@@ -1,6 +1,6 @@
-import { Paper, Stack, Typography } from "@mui/material";
+import { Paper, Stack } from "@mui/material";
 import { UserSchema } from "../../../types/user";
-import UserAvatar from "./UserAvatar";
+import BasicUserInfo from "./BasicUserInfo";
 
 type UserProfileProps = { user: UserSchema };
 
@@ -10,15 +10,9 @@ export default function UserProfile({ user }: UserProfileProps) {
       component={Paper}
       direction="row"
       spacing={2}
-      sx={{ padding: "1rem", alignItems: "center", justifyContent: "space-between" }}
+      sx={{ alignItems: "center", justifyContent: "space-between" }}
     >
-      <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
-        <UserAvatar user={user} configs={{ length: "50px" }} />
-        <Stack>
-          <Typography variant="h5">{user.name}</Typography>
-          <Typography>@{user.id}</Typography>
-        </Stack>
-      </Stack>
+      <BasicUserInfo user={user} />
       {/* Todo additional info */}
     </Stack>
   );
