@@ -1,7 +1,7 @@
-import { Stack, Tooltip, Typography, Zoom } from "@mui/material";
-import { neutral } from "../../../../styles/colors";
+import { Stack } from "@mui/material";
 import { StoryCardSchema } from "../../../../types/story";
 import LikeButton from "./LikeButton";
+import PicturedDate from "./PicturedDate";
 
 type StoryMetaDataProps = { story: StoryCardSchema };
 
@@ -17,11 +17,7 @@ export default function StoryMetaData({ story }: StoryMetaDataProps) {
       }}
     >
       <LikeButton story={story} />
-      <Tooltip title="Captured at" enterDelay={1000} TransitionComponent={Zoom}>
-        <Typography variant="caption" color={neutral[70]}>
-          {story.picturedAt}
-        </Typography>
-      </Tooltip>
+      <PicturedDate date={story.picturedAt} />
     </Stack>
   );
 }
