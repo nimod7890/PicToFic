@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Stack, useMediaQuery } from "@mui/material";
+import { Box, Card, CardMedia, Divider, Stack, useMediaQuery } from "@mui/material";
 import { StorySchema } from "../../../../types/story";
 import BasicUserInfo from "../../user/BasicUserInfo";
 import StoryMetaData from "../metaData/StoryMetaData";
@@ -15,28 +15,38 @@ export default function StoryBook({ story }: { story: StorySchema }) {
         direction={isSmallScreen ? "column" : "row"}
         sx={{ maxHeight: isSmallScreen ? "100%" : "572px" }}
       >
-        <CardContent
+        <Stack
+          divider={<Divider />}
           sx={{
             width,
-            maxHeight: `${isSmallScreen && "300px"}`,
-            padding: 3,
-            display: "flex",
-            flexDirection: "column",
             justifyContent: "space-between",
+            padding: 0,
           }}
         >
           <BasicUserInfo user={story.createdBy} />
-          <StoryDescription story={story} />
-          <StoryMetaData story={story} />
-        </CardContent>
+          <Box
+            sx={{
+              height: "100%",
+              minHeight: "200px",
+              maxHeight: `${isSmallScreen && "200px"}`,
+              overflow: "auto",
+              paddingX: 2,
+              paddingY: 1,
+            }}
+          >
+            <StoryDescription story={story} />
+          </Box>
+          <Box sx={{ padding: 1 }}>
+            <StoryMetaData story={story} />
+          </Box>
+        </Stack>
         <CardMedia
+          alt="image"
           component="img"
-          alt="StoryBook Image"
           sx={{
             width,
             backgroundColor: neutral[0],
             objectFit: "contain",
-            display: "block",
           }}
           image={story.imageUrl}
         />

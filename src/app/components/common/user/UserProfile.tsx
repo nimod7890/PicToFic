@@ -10,7 +10,7 @@ export default function UserProfile({ user }: UserProfileProps) {
       component={Paper}
       direction="row"
       spacing={2}
-      sx={{ padding: "1rem", alignItems: "center", justifyContent: "space-between" }}
+      sx={{ alignItems: "center", justifyContent: "space-between" }}
     >
       <BasicUserInfo user={user} />
       {/* Todo additional info */}
