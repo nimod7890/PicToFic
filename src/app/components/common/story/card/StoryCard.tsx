@@ -1,6 +1,7 @@
 import { Box, Card } from "@mui/material";
 import { StoryCardSchema } from "../../../../types/story";
-import StoryMetaData from "../StoryMetaData";
+import StoryMetaData from "../metaData/StoryMetaData";
+import ViewStoryButton from "../../../../features/story/ui/ViewStoryButton";
 
 type StoryCardProps = {
   story: StoryCardSchema;
@@ -10,45 +11,37 @@ type StoryCardProps = {
 export default function StoryCard({ story, type = "mansonry" }: StoryCardProps) {
   return (
     <Card sx={{ padding: "1rem", paddingTop: "2rem" }} elevation={3}>
-      {type === "grid" ? (
-        <Box
-          sx={{
-            ...textContainerStyles,
-            height: contentHeight,
-          }}
-        >
-          {story.summary}
-        </Box>
-      ) : (
-        <Box
-          sx={{
-            ...textContainerStyles,
-            fontSize: getFontSizeFromTextLength(story.summary.length),
-            fontWeight: getFontWeightFromTextLength(story.summary.length),
-            maxHeight: contentHeight,
-          }}
-        >
-          {story.summary}
-        </Box>
-      )}
+      <ViewStoryButton storyId={story.id}>
+        {type === "grid" ? (
+          <Box
+            sx={{
+              ...textContainerStyles(story.summary.length),
+              height: 300,
+            }}
+          >
+            {story.summary}
+          </Box>
+        ) : (
+          <Box sx={textContainerStyles(story.summary.length)}>{story.summary}</Box>
+        )}
+      </ViewStoryButton>
       <StoryMetaData story={story} />
     </Card>
   );
 }
 
-const contentHeight = 240;
-
-const textContainerStyles = {
+const textContainerStyles = (length: number) => ({
+  fontSize: getFontSizeFromTextLength(length),
+  fontWeight: getFontWeightFromTextLength(length),
   boxShadow: "inset 0 2px 8px 0 rgba(0, 0, 0, 0.3)",
   borderRadius: "5px",
-  maxHeight: contentHeight,
   padding: "8px 16px",
   fontStyle: "italic",
   marginBottom: "20px",
   overflow: "scroll",
   textOverflow: "ellipsis",
   wordBreak: "break-all",
-};
+});
 
 const textMaxLength = 500;
 
