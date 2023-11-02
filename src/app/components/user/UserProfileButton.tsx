@@ -1,19 +1,12 @@
-import { IconButton } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { UserSchema } from "../../types/user";
 import UserAvatar from "./UserAvatar";
 import { getUserPagePath } from "../../routes/routePath";
+import RouteButton from "../base/RouteButton";
 
 type UserProfileButtonProps = {
   user: UserSchema;
 };
 
 export default function UserProfileButton({ user }: UserProfileButtonProps) {
-  const navigate = useNavigate();
-
-  return (
-    <IconButton onClick={() => navigate(getUserPagePath(user.id))}>
-      <UserAvatar user={user} />
-    </IconButton>
-  );
+  return <RouteButton to={getUserPagePath(user.id)} icon={<UserAvatar user={user} />} />;
 }

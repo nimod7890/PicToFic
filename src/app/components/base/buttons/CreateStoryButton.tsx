@@ -1,9 +1,10 @@
 import { IconButton } from "@mui/material";
-import { DrawRounded as DrawRoundedIcon } from "@mui/icons-material";
+import AddBoxIcon from "@mui/icons-material/AddBox";
+
 export default function CreateStoryButton() {
   return (
     <IconButton>
-      <DrawRoundedIcon />
+      <AddBoxIcon />
     </IconButton>
   );
 }

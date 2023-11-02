@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
-import Logo from "./Logo";
+import Logo from "../Logo";
 import { useNavigate } from "react-router-dom";
-import RoutePath from "../../routes/routePath";
+import RoutePath from "../../../routes/routePath";
 
 export default function HomeLogoButton() {
   const navigate = useNavigate();

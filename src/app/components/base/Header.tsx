@@ -1,13 +1,16 @@
-import { AppBar, Slide, useScrollTrigger } from "@mui/material";
+import { AppBar, Box, Slide, useScrollTrigger } from "@mui/material";
 import React from "react";
-import MenuButton from "../MenuButton";
-import HomeLogoButton from "../HomeLogoButton";
+import MenuButton from "./buttons/MenuButton";
+import HomeLogoButton from "./buttons/HomeLogoButton";
+import SearchButton from "./SearchButton";
 
 export default function Header() {
   return (
     <HideOnScroll>
       <AppBar sx={{ top: 0 }}>
         <HomeLogoButton />
+        <Box flexGrow={1} />
+        <SearchButton />
         <MenuButton />
       </AppBar>
     </HideOnScroll>

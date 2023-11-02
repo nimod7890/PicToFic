@@ -14,6 +14,7 @@ export default function UserAvatar({ user, configs = {} }: UserAvatarProps) {
   return (
     <Avatar
       sx={{
+        backgroundColor: "rgba(0, 0, 0, 0.54)",
         width: length,
         height: length,
       }}

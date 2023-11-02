@@ -6,7 +6,7 @@ export default function Logo() {
   return (
     <Stack direction="row" spacing="6px" alignItems="center">
       <img src={logoIcon} height={"24px"} />
-      <img src={logo} height={"20px"} />;
+      <img src={logo} height={"20px"} />
     </Stack>
   );
 }
