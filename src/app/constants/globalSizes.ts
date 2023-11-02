@@ -1,4 +1,4 @@
-const appBarHeight = "50px";
+const appBarHeight = "40px";
 
 export const Layout = {
   appBarHeight: appBarHeight,

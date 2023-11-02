@@ -1,5 +1,5 @@
 import { Stack } from "@mui/material";
-import useGetStory from "../../../hooks/story/useGetStory";
+import useGetStory from "../../hooks/story/useGetStory.ts";
 import StoryBook from "./book/StoryBook.tsx";
 
 type StoryContentProps = {

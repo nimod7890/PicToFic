@@ -1,9 +1,9 @@
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import { IconButton } from "@mui/material";
 
-export default function Menu() {
+export default function MenuButton() {
   return (
-    <IconButton color="primary" aria-label="open drawer">
+    <IconButton>
       <MenuRoundedIcon />
     </IconButton>
   );

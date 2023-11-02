@@ -1,9 +1,9 @@
 import { Box, Card, CardMedia, Divider, Stack, useMediaQuery } from "@mui/material";
-import { StorySchema } from "../../../../types/story";
+import { StorySchema } from "../../../types/story";
 import BasicUserInfo from "../../user/BasicUserInfo";
 import StoryMetaData from "../metaData/StoryMetaData";
 import StoryDescription from "./StoryDescription";
-import { neutral } from "../../../../styles/colors";
+import { neutral } from "../../../styles/colors";
 
 export default function StoryBook({ story }: { story: StorySchema }) {
   const isSmallScreen = useMediaQuery("(max-width:600px)");

@@ -1,5 +1,5 @@
 import { Stack } from "@mui/material";
-import { StoryCardSchema } from "../../../../types/story";
+import { StoryCardSchema } from "../../../types/story";
 import LikeButton from "./LikeButton";
 import PicturedDate from "./PicturedDate";
 

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Story from "./Story";
-import ModalLayout from "../ModalLayout";
+import ModalLayout from "../common/ModalLayout";
 
 export default function StoryModal({ storyId, onClose }: { storyId: number; onClose: () => void }) {
   useEffect(() => {

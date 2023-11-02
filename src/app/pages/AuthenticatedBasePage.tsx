@@ -1,6 +1,6 @@
 import { Stack } from "@mui/material";
-import Appbar from "../components/base/appbar/Appbar";
-import Header from "../components/base/header/Header";
+import Appbar from "../components/base/Appbar";
+import Header from "../components/base/Header";
 import { Layout } from "../constants/globalSizes";
 import MainContent from "../components/base/MainContent";
 

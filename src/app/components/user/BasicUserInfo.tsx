@@ -1,4 +1,4 @@
-import { UserSchema } from "../../../types/user";
+import { UserSchema } from "../../types/user";
 import { Stack, Typography } from "@mui/material";
 import UserAvatar from "./UserAvatar";
 
