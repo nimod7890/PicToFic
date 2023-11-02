@@ -1,7 +1,7 @@
 import { UserSchema } from "../../types/user";
 import UserAvatar from "./UserAvatar";
 import { getUserPagePath } from "../../routes/routePath";
-import RouteButton from "../base/RouteButton";
+import RouteButton from "../base/buttons/RouteButton";
 
 type UserProfileButtonProps = {
   user: UserSchema;

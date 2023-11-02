@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { ReactNode } from "react";
-import StoryModal from "../../../components/story/StoryModal";
+import StoryModal from "../../../components/story/modal/StoryModal";
 import useViewStoryButton from "../@hooks/useViewStoryButton";
 
 type ViewStoryButtonProps = { storyId: number; children: ReactNode };
