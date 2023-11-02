@@ -1,32 +1,14 @@
-import { AppBar, Slide, Toolbar, useScrollTrigger } from "@mui/material";
-import Logo from "../../common/Logo";
+import { AppBar, Slide, useScrollTrigger } from "@mui/material";
 import React from "react";
-import Menu from "../../common/Menu";
-import { Layout } from "../../../constants/globalSizes";
-import { backgroundDefault } from "../../../styles/colors";
+import MenuButton from "../MenuButton";
+import HomeLogoButton from "../HomeLogoButton";
 
 export default function Header() {
   return (
     <HideOnScroll>
-      <AppBar
-        position="fixed"
-        sx={{
-          top: 0,
-          width: "100%",
-          height: Layout.appBarHeight,
-          backgroundColor: backgroundDefault,
-          position: "sticky",
-          justifyContent: "center",
-        }}
-      >
-        <Toolbar
-          sx={{
-            justifyContent: "space-between",
-          }}
-        >
-          <Logo />
-          <Menu />
-        </Toolbar>
+      <AppBar sx={{ top: 0 }}>
+        <HomeLogoButton />
+        <MenuButton />
       </AppBar>
     </HideOnScroll>
   );
