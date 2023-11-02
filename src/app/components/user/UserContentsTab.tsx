@@ -25,7 +25,7 @@ export default function UserContentsTab({ userId }: UserContentsTabProps) {
         <Tab to={getFramePagePath(userId)} {...tabProps(1)} />
         <Tab to={getSnapPagePath(userId)} {...tabProps(2)} />
       </Tabs>
-      <Paper sx={{ padding: 1 }}>
+      <Paper sx={{ padding: 2 }}>
         <Outlet />
       </Paper>
     </>

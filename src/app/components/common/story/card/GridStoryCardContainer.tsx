@@ -8,7 +8,7 @@ type GridStoryCardContainerProps = {
 
 export default function GridStoryCardContainer({ storyList }: GridStoryCardContainerProps) {
   return (
-    <Grid container spacing={2} columns={6} sx={{ left: "-1rem", position: "relative" }}>
+    <Grid container spacing={2} columns={6}>
       {storyList.map((story, index) => (
         <Grid key={index} item xs={3} lg={2}>
           <StoryCard story={story} type={"grid"} />

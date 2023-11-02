@@ -3,10 +3,10 @@ import useAuthStorage from "../hooks/useAuthStorage";
 import AuthenticatedBasePage from "../pages/AuthenticatedBasePage";
 import HomePage from "../pages/HomePage";
 import StoryPage from "../pages/StoryPage";
-import UserPage from "../pages/ user/UserPage";
+import UserPage from "../pages/user/UserPage";
 import RoutePath from "./routePath";
 import UnauthenticatedBasePage from "../pages/UnauthenticatedBasePage";
-import UserGridStoryCardListPage from "../pages/ user/UserGridStoryCardListPage";
+import UserStoryListPage from "../pages/user/UserStorListPage";
 
 export default function AppRouter() {
   const { isEmptyToken } = useAuthStorage();
@@ -20,9 +20,9 @@ export default function AppRouter() {
         <Route index element={isEmptyToken ? "loginPage" : <HomePage />} />
         <Route path={RoutePath.Story} element={<StoryPage />} />
         <Route path={RoutePath.User} element={<UserPage />}>
-          <Route index element={<UserGridStoryCardListPage />} />
-          <Route path={RoutePath.Frame} element={<>Frames Content</>} />
-          <Route path={RoutePath.Snap} element={<>User Snap Content</>} />
+          <Route index element={<UserStoryListPage />} />
+          <Route path={RoutePath.Frame} element={"frame content"} />
+          <Route path={RoutePath.Snap} element={"snap content"} />
         </Route>
       </Route>
     </Routes>
