@@ -1,5 +1,5 @@
 import useUserPage from "../../features/user/@hooks/useUserPage";
-import UserProfile from "../../components/common/user/UserProfile";
+import UserProfile from "../../components/user/UserProfile";
 import UserContentsTab from "../../components/user/UserContentsTab";
 
 export default function UserPage() {

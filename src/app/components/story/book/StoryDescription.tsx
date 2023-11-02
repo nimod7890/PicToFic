@@ -1,4 +1,4 @@
-import { StorySchema } from "../../../../types/story";
+import { StorySchema } from "../../../types/story";
 import { Box } from "@mui/material";
 
 type StoryDescriptionProps = { story: StorySchema };

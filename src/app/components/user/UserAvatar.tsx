@@ -1,6 +1,5 @@
 import { Avatar } from "@mui/material";
-import { primary } from "../../../styles/colors";
-import { UserSchema } from "../../../types/user";
+import { UserSchema } from "../../types/user";
 
 type UserAvatarProps = {
   user: UserSchema;
@@ -17,7 +16,6 @@ export default function UserAvatar({ user, configs = {} }: UserAvatarProps) {
       sx={{
         width: length,
         height: length,
-        backgroundColor: primary[60],
       }}
     />
   );

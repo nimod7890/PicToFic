@@ -1,4 +1,4 @@
-import MansonryStoryCardContainer from "../components/common/story/card/MansonryStoryCardContainer";
+import MansonryStoryCardContainer from "../components/story/card/MansonryStoryCardContainer";
 import useHomePage from "../features/home/@hooks/useHomePage";
 
 export default function HomePage() {

@@ -1,4 +1,4 @@
-import { StoryCardListSchema } from "../../../../types/story";
+import { StoryCardListSchema } from "../../../types/story";
 import { Grid } from "@mui/material";
 import StoryCard from "./StoryCard";
 

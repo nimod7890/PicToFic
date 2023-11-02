@@ -1,5 +1,5 @@
 import { Tooltip, Zoom, Typography } from "@mui/material";
-import { neutral } from "../../../../styles/colors";
+import { neutral } from "../../../styles/colors";
 
 type PicturedDateProps = { date: string };
 

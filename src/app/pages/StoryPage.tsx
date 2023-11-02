@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import Story from "../components/common/story/Story";
+import Story from "../components/story/Story";
 
 export default function StoryPage() {
   const { storyId } = useParams();

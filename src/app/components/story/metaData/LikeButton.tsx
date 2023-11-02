@@ -4,8 +4,8 @@ import {
   FavoriteBorderRounded as FavoriteBorderRoundedIcon,
 } from "@mui/icons-material";
 import { useState } from "react";
-import { StoryCardSchema } from "../../../../types/story";
-import { neutral, secondary } from "../../../../styles/colors";
+import { StoryCardSchema } from "../../../types/story";
+import { neutral, secondary } from "../../../styles/colors";
 
 type LikeButtonProps = {
   story: StoryCardSchema;

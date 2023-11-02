@@ -1,7 +1,7 @@
 import { Box, Card } from "@mui/material";
-import { StoryCardSchema } from "../../../../types/story";
+import { StoryCardSchema } from "../../../types/story";
 import StoryMetaData from "../metaData/StoryMetaData";
-import ViewStoryButton from "../../../../features/story/ui/ViewStoryButton";
+import ViewStoryButton from "../../../features/story/ui/ViewStoryButton";
 
 type StoryCardProps = {
   story: StoryCardSchema;

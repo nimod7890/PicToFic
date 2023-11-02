@@ -1,6 +1,6 @@
 import { useMediaQuery } from "@mui/material";
 import { useMemo } from "react";
-import { StoryCardListSchema } from "../../../../types/story";
+import { StoryCardListSchema } from "../../../types/story";
 import StoryCard from "./StoryCard";
 import { Masonry } from "@mui/lab";
 

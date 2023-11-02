@@ -1,5 +1,5 @@
 import { Paper, Stack } from "@mui/material";
-import { UserSchema } from "../../../types/user";
+import { UserSchema } from "../../types/user";
 import BasicUserInfo from "./BasicUserInfo";
 
 type UserProfileProps = { user: UserSchema };

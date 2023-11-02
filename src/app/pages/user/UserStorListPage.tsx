@@ -1,4 +1,4 @@
-import GridStoryCardContainer from "../../components/common/story/card/GridStoryCardContainer";
+import GridStoryCardContainer from "../../components/story/card/GridStoryCardContainer";
 import useUserStoryListPage from "../../features/user/@hooks/useUserStoryListPage";
 
 export default function UserStoryListPage() {
