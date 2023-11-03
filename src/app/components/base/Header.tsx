@@ -2,7 +2,7 @@ import { AppBar, Box, Slide, useScrollTrigger } from "@mui/material";
 import React from "react";
 import MenuButton from "./buttons/MenuButton";
 import HomeLogoButton from "./buttons/HomeLogoButton";
-import SearchButton from "./SearchButton";
+import SearchButton from "./buttons/SearchButton";
 
 export default function Header() {
   return (
