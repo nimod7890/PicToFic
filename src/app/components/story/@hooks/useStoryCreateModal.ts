@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useStepHandler from "./useStepHandler";
 import useImageInput from "./useImageInput";
 import useStoryUpload from "./useStoryUpload";
 import useImageCrop from "./useImageCrop";
-import { mockStoryDescription } from "../../../mocks/story";
 
 export type StoryCreateModalProps = ReturnType<typeof useStoryCreateModal>;
 
@@ -11,7 +10,6 @@ export default function useStoryCreateModal({ onClose }: { onClose: () => void }
   const [contentStep, setContentStep] = useState<ContentStep>(0);
   const [image, setImage] = useState<ImageFileType | undefined>(undefined);
   const [croppedImage, setCroppedImage] = useState<ImageFileType | undefined>(image);
-  const [description, setDescription] = useState<string | undefined>(undefined);
 
   // header
   const stepHandler = useStepHandler({
@@ -25,14 +23,18 @@ export default function useStoryCreateModal({ onClose }: { onClose: () => void }
   // content
   const inputImageStep = useImageInput({ inputImage, goNextStep });
   const cropImageStep = useImageCrop({ croppedImage, setCroppedImage });
-  const uploadStoryStep = useStoryUpload({ image: croppedImage, description });
+  const uploadStoryStep = useStoryUpload({ image: croppedImage });
+
+  useEffect(() => {
+    if (image) {
+      setCroppedImage(image);
+    }
+  }, [image]);
 
   function inputImage(file: File) {
     const imageUrl = URL.createObjectURL(file);
     const newImage: ImageFileType = { imageUrl, file };
     setImage(newImage);
-    initializeCroppedImage(newImage);
-    setDescription(mockStoryDescription);
   }
 
   function goNextStep() {
@@ -45,10 +47,6 @@ export default function useStoryCreateModal({ onClose }: { onClose: () => void }
 
   function resetImage() {
     setImage(undefined);
-  }
-
-  function initializeCroppedImage(image: ImageFileType) {
-    setCroppedImage(image);
   }
 
   function uploadStory() {

@@ -26,7 +26,7 @@ export default function useStepHandler({
       case ContentStep.UploadStory: {
         break;
       }
-      default:
+      case ContentStep.InputImage:
         return;
     }
     goPreviousStep();
@@ -42,7 +42,7 @@ export default function useStepHandler({
         goNextStep();
         break;
       }
-      default:
+      case ContentStep.InputImage:
         return;
     }
   };
