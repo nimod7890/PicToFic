@@ -1,5 +1,5 @@
 import { AppBar } from "@mui/material";
-import CreateStoryButton from "./buttons/CreateStoryButton";
+import StoryCreateButton from "./buttons/StoryCreateButton";
 import UserProfileButton from "../user/UserProfileButton";
 import useAppRepository from "../../hooks/useAppRepository";
 import HomeButton from "./buttons/HomeButton";
@@ -11,7 +11,7 @@ export default function Appbar() {
   return (
     <AppBar sx={{ top: "auto", bottom: 0, justifyContent: "space-around" }}>
       <HomeButton />
-      <CreateStoryButton />
+      <StoryCreateButton />
       <NotificationButton />
       <UserProfileButton user={user} />
     </AppBar>

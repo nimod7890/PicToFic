@@ -27,4 +27,12 @@ export const MuiComponents: Components = {
       },
     },
   },
+  MuiButton: {
+    styleOverrides: {
+      root: {
+        fontWeight: 700,
+        textTransform: "none",
+      },
+    },
+  },
 };
