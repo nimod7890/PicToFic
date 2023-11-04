@@ -13,7 +13,7 @@ type StoryCreateModalProps = {
 
 export default function StoryCreateModal({ onClose }: StoryCreateModalProps) {
   const { contentStep, stepHandler, inputImageStep, cropImageStep, uploadStoryStep } =
-    useStoryCreateModal();
+    useStoryCreateModal({ onClose });
 
   return (
     <ModalLayout onClose={onClose}>
