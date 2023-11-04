@@ -2,6 +2,7 @@ import { Box, Card } from "@mui/material";
 import { StoryCardSchema } from "../../../types/story";
 import StoryMetaData from "../metaData/StoryMetaData";
 import ViewStoryButton from "../../../features/story/ui/ViewStoryButton";
+import { modalSize } from "../../../constants/globalSizes";
 
 type StoryCardProps = {
   story: StoryCardSchema;
@@ -16,7 +17,7 @@ export default function StoryCard({ story, type = "mansonry" }: StoryCardProps) 
           <Box
             sx={{
               ...textContainerStyles(story.summary.length),
-              height: 300,
+              height: modalSize,
             }}
           >
             {story.summary}

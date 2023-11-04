@@ -6,3 +6,6 @@ export const Layout = {
   bodyMinWidth: "340px",
   bodyMaxWidth: "1240px",
 };
+
+export const modalSize = "300px";
+export const modalMinimumSize = modalSize;

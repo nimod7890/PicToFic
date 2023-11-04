@@ -6,6 +6,7 @@ import { ContentStep } from "../../@hooks/useStoryCreateModal";
 import useStoryCreateModal from "../../@hooks/useStoryCreateModal";
 import ImageCropStep from "./ImageCropStep";
 import StoryUploadStep from "./StoryUploadStep";
+import { modalSize } from "../../../../constants/globalSizes";
 
 type StoryCreateModalProps = {
   onClose: () => void;
@@ -18,7 +19,7 @@ export default function StoryCreateModal({ onClose }: StoryCreateModalProps) {
   return (
     <ModalLayout onClose={onClose}>
       <StoryCreateModalHeader {...stepHandler} />
-      <Box height="300px">
+      <Box height={modalSize}>
         {(() => {
           switch (contentStep) {
             case ContentStep.InputImage:
