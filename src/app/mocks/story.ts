@@ -49,3 +49,6 @@ export const mockStoryList: StoryListSchema = mockStoryCardList.map(storyCard =>
   createdAt: moment(new Date()).format("LLL"),
   updatedAt: storyCard.id % 2 ? null : moment(new Date()).format("LLL"),
 }));
+
+export const mockStoryDescription =
+  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque veritatis aut, sit magni ad ratione nostrum architecto incidunt quas reprehenderit, inventore enim quibusdam porro ipsum vitae fuga, aliquid exercitationem nulla!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque veritatis aut, sit magni ad ratione nostrum architecto incidunt quas reprehenderit, inventore enim quibusdam porro ipsum vitae fuga, aliquid exercitationem nulla!";
