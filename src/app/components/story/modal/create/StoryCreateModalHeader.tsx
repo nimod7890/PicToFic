@@ -17,7 +17,7 @@ export default function StoryCreateModalHeader({
       height="32px"
     >
       {contentStep > 0 && (
-        <IconButton onClick={onBackButtonClick} sx={{ width: "40px" }}>
+        <IconButton onClick={onBackButtonClick}>
           <ArrowBackRoundedIcon />
         </IconButton>
       )}
@@ -34,10 +34,7 @@ export default function StoryCreateModalHeader({
         })()}
       </Typography>
       {contentStep > 0 && (
-        <Button
-          sx={{ padding: "4px", minWidth: "fit-content", width: "40px" }}
-          onClick={onRightButtonClick}
-        >
+        <Button sx={{ padding: "4px", minWidth: "fit-content" }} onClick={onRightButtonClick}>
           {contentStep === ContentStep.UploadStory ? "Create" : "Next"}
         </Button>
       )}

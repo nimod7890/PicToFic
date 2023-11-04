@@ -6,7 +6,7 @@ export default function useImageCrop({
   croppedImage,
   setCroppedImage,
 }: {
-  croppedImage: ImageFileType;
+  croppedImage: ImageFileType | undefined;
   setCroppedImage: (image: ImageFileType) => void;
 }) {
   return { croppedImage, setCroppedImage };
