@@ -18,5 +18,5 @@ export default function useImageInput({
     goNextStep();
   };
 
-  return { handleImageInput };
+  return { onImageInput: handleImageInput };
 }

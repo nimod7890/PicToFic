@@ -15,35 +15,37 @@ export default function useStepHandler({
 }) {
   const handleBackButtonClick = () => {
     switch (contentStep) {
-      case ContentStep.FileCrop: {
+      case ContentStep.CropImage: {
         resetImage();
         break;
       }
-      case ContentStep.FileUpload: {
+      case ContentStep.UploadStory: {
         break;
       }
-      case ContentStep.FileInput:
       default:
         return;
     }
     goPreviousStep();
   };
 
-  const handleNextButtonClick = () => {
+  const handleRightButtonClick = () => {
     switch (contentStep) {
-      case ContentStep.FileUpload: {
+      case ContentStep.UploadStory: {
         console.log("save");
         break;
       }
-      case ContentStep.FileCrop: {
+      case ContentStep.CropImage: {
+        goNextStep();
         break;
       }
-      case ContentStep.FileInput:
       default:
         return;
     }
-    goNextStep();
   };
 
-  return { contentStep, handleBackButtonClick, handleNextButtonClick };
+  return {
+    contentStep,
+    onBackButtonClick: handleBackButtonClick,
+    onRightButtonClick: handleRightButtonClick,
+  };
 }
