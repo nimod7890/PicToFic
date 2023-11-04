@@ -2,48 +2,54 @@ import { ContentStep } from "./useStoryCreateModal";
 
 export type UseStepHandlerType = ReturnType<typeof useStepHandler>;
 
+type UseStepHandlerProps = {
+  contentStep: ContentStep;
+  goPreviousStep: () => void;
+  goNextStep: () => void;
+  resetImage: () => void;
+  uploadStory: () => void;
+};
+
 export default function useStepHandler({
   contentStep,
   goPreviousStep,
   goNextStep,
   resetImage,
-}: {
-  contentStep: ContentStep;
-  goPreviousStep: () => void;
-  goNextStep: () => void;
-  resetImage: () => void;
-}) {
+  uploadStory,
+}: UseStepHandlerProps) {
   const handleBackButtonClick = () => {
     switch (contentStep) {
-      case ContentStep.FileCrop: {
+      case ContentStep.CropImage: {
         resetImage();
         break;
       }
-      case ContentStep.FileUpload: {
+      case ContentStep.UploadStory: {
         break;
       }
-      case ContentStep.FileInput:
-      default:
+      case ContentStep.InputImage:
         return;
     }
     goPreviousStep();
   };
 
-  const handleNextButtonClick = () => {
+  const handleRightButtonClick = () => {
     switch (contentStep) {
-      case ContentStep.FileUpload: {
-        console.log("save");
+      case ContentStep.UploadStory: {
+        uploadStory();
         break;
       }
-      case ContentStep.FileCrop: {
+      case ContentStep.CropImage: {
+        goNextStep();
         break;
       }
-      case ContentStep.FileInput:
-      default:
+      case ContentStep.InputImage:
         return;
     }
-    goNextStep();
   };
 
-  return { contentStep, handleBackButtonClick, handleNextButtonClick };
+  return {
+    contentStep,
+    onBackButtonClick: handleBackButtonClick,
+    onRightButtonClick: handleRightButtonClick,
+  };
 }

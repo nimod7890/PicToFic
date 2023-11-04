@@ -1,51 +1,71 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useStepHandler from "./useStepHandler";
 import useImageInput from "./useImageInput";
+import useStoryUpload from "./useStoryUpload";
+import useImageCrop from "./useImageCrop";
 
 export type StoryCreateModalProps = ReturnType<typeof useStoryCreateModal>;
 
-export default function useStoryCreateModal() {
+export default function useStoryCreateModal({ onClose }: { onClose: () => void }) {
   const [contentStep, setContentStep] = useState<ContentStep>(0);
   const [image, setImage] = useState<ImageFileType | undefined>(undefined);
+  const [croppedImage, setCroppedImage] = useState<ImageFileType | undefined>(image);
 
-  const goNextStep = () => {
-    setContentStep(step => step + 1);
-  };
+  // header
+  const stepHandler = useStepHandler({
+    contentStep,
+    goNextStep,
+    goPreviousStep,
+    resetImage,
+    uploadStory,
+  });
 
-  const goPreviousStep = () => {
-    setContentStep(step => step - 11);
-  };
+  // content
+  const inputImageStep = useImageInput({ inputImage, goNextStep });
+  const cropImageStep = useImageCrop({ croppedImage, setCroppedImage });
+  const uploadStoryStep = useStoryUpload({ image: croppedImage });
 
-  const resetImage = () => {
-    setImage(undefined);
-  };
+  useEffect(() => {
+    if (image) {
+      setCroppedImage(image);
+    }
+  }, [image]);
 
-  const inputImage = (file: File) => {
+  function inputImage(file: File) {
     const imageUrl = URL.createObjectURL(file);
-    setImage({ imageUrl, file });
-  };
+    const newImage: ImageFileType = { imageUrl, file };
+    setImage(newImage);
+  }
 
-  const stepHandler = useStepHandler({ contentStep, goNextStep, goPreviousStep, resetImage });
-  const imageInputStep = useImageInput({ inputImage, goNextStep });
+  function goNextStep() {
+    setContentStep(step => step + 1);
+  }
+
+  function goPreviousStep() {
+    setContentStep(step => step - 1);
+  }
+
+  function resetImage() {
+    setImage(undefined);
+  }
+
+  function uploadStory() {
+    onClose();
+  }
 
   return {
-    image,
-    setImage,
     contentStep,
-    setContentStep,
     stepHandler,
-    imageInputStep,
+    inputImageStep,
+    cropImageStep,
+    uploadStoryStep,
   };
 }
 
 export const enum ContentStep {
-  FileInput = 0,
-  FileCrop = 1,
-  FileUpload = 2,
+  InputImage = 0,
+  CropImage = 1,
+  UploadStory = 2,
 }
 
 export type ImageFileType = { imageUrl: string; file: File };
-
-export type ImageFileUploaderProps = {
-  onImageInput: ({ imageUrl, file }: ImageFileType) => void;
-};

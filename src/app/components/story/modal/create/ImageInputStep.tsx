@@ -3,8 +3,8 @@ import logoIcon from "../../../../assets/logoPink.svg";
 import useFileInput from "../../../../hooks/useFileInput";
 import { UseImageInputType } from "../../@hooks/useImageInput";
 
-export default function ImageInputStep({ handleImageInput }: UseImageInputType) {
-  const { dropZoneProps, handleFileInput } = useFileInput({ onFileInput: handleImageInput });
+export default function ImageInputStep({ onImageInput }: UseImageInputType) {
+  const { dropZoneProps, handleFileInput } = useFileInput({ onFileInput: onImageInput });
 
   return (
     <Stack {...dropZoneProps}>

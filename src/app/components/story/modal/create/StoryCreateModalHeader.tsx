@@ -5,8 +5,8 @@ import { UseStepHandlerType } from "../../@hooks/useStepHandler";
 
 export default function StoryCreateModalHeader({
   contentStep,
-  handleBackButtonClick,
-  handleNextButtonClick,
+  onBackButtonClick,
+  onRightButtonClick,
 }: UseStepHandlerType) {
   return (
     <Stack
@@ -17,28 +17,25 @@ export default function StoryCreateModalHeader({
       height="32px"
     >
       {contentStep > 0 && (
-        <IconButton onClick={handleBackButtonClick} sx={{ width: "40px" }}>
+        <IconButton onClick={onBackButtonClick}>
           <ArrowBackRoundedIcon />
         </IconButton>
       )}
       <Typography variant="subtitle1" textAlign={"center"}>
         {(() => {
           switch (contentStep) {
-            case ContentStep.FileCrop:
+            case ContentStep.CropImage:
               return "Crop";
-            case ContentStep.FileInput:
-            case ContentStep.FileUpload:
+            case ContentStep.InputImage:
+            case ContentStep.UploadStory:
             default:
               return "Create new story";
           }
         })()}
       </Typography>
       {contentStep > 0 && (
-        <Button
-          sx={{ padding: "4px", minWidth: "fit-content", width: "40px" }}
-          onClick={handleNextButtonClick}
-        >
-          {contentStep === ContentStep.FileUpload ? "Create" : "Next"}
+        <Button sx={{ padding: "4px", minWidth: "fit-content" }} onClick={onRightButtonClick}>
+          {contentStep === ContentStep.UploadStory ? "Create" : "Next"}
         </Button>
       )}
     </Stack>

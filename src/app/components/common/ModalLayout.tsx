@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import { Dialog, Zoom, IconButton, DialogContent } from "@mui/material";
+import { modalMinimumSize } from "../../constants/globalSizes";
 
 type ModalLayoutProps = {
   onClose: () => void;
@@ -22,7 +23,7 @@ export default function ModalLayout({ onClose, children, configs = {} }: ModalLa
       TransitionComponent={Zoom}
       PaperProps={{
         style: {
-          minWidth: "300px",
+          minWidth: modalMinimumSize,
           maxHeight: "max-content",
           overflow: "auto",
         },
