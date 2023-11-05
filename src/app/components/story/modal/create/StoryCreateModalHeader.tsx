@@ -7,6 +7,7 @@ export default function StoryCreateModalHeader({
   contentStep,
   onBackButtonClick,
   onRightButtonClick,
+  disabledNextStepButton,
 }: UseStepHandlerType) {
   return (
     <Stack
@@ -34,7 +35,11 @@ export default function StoryCreateModalHeader({
         })()}
       </Typography>
       {contentStep > 0 && (
-        <Button sx={{ padding: "4px", minWidth: "fit-content" }} onClick={onRightButtonClick}>
+        <Button
+          sx={{ padding: "4px", minWidth: "fit-content" }}
+          onClick={onRightButtonClick}
+          disabled={disabledNextStepButton}
+        >
           {contentStep === ContentStep.UploadStory ? "Create" : "Next"}
         </Button>
       )}
