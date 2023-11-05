@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useStepHandler from "./useStepHandler";
 import useImageInput from "./useImageInput";
 import useStoryUpload from "./useStoryUpload";
@@ -9,33 +9,35 @@ export type StoryCreateModalProps = ReturnType<typeof useStoryCreateModal>;
 export default function useStoryCreateModal({ onClose }: { onClose: () => void }) {
   const [contentStep, setContentStep] = useState<ContentStep>(0);
   const [image, setImage] = useState<ImageFileType | undefined>(undefined);
-  const [croppedImage, setCroppedImage] = useState<ImageFileType | undefined>(image);
+  const [croppedImage, setCroppedImage] = useState<ImageFileType | undefined>(undefined);
 
-  // header
   const stepHandler = useStepHandler({
     contentStep,
     goNextStep,
     goPreviousStep,
-    resetImage,
-    uploadStory,
+    resetImage: () => setImage(undefined),
+    uploadStory: () => {
+      onClose();
+    },
+    disabledNextStepButton: !croppedImage,
   });
 
-  // content
-  const inputImageStep = useImageInput({ inputImage, goNextStep });
-  const cropImageStep = useImageCrop({ croppedImage, setCroppedImage });
+  const inputImageStep = useImageInput({
+    inputImage: (file: File) => {
+      const imageUrl = URL.createObjectURL(file);
+      const newImage: ImageFileType = { imageUrl, file };
+      setImage(newImage);
+    },
+    goNextStep,
+  });
+
+  const cropImageStep = useImageCrop({
+    image,
+    croppedImage,
+    onChangeCroppedImage: setCroppedImage,
+  });
+
   const uploadStoryStep = useStoryUpload({ image: croppedImage });
-
-  useEffect(() => {
-    if (image) {
-      setCroppedImage(image);
-    }
-  }, [image]);
-
-  function inputImage(file: File) {
-    const imageUrl = URL.createObjectURL(file);
-    const newImage: ImageFileType = { imageUrl, file };
-    setImage(newImage);
-  }
 
   function goNextStep() {
     setContentStep(step => step + 1);
@@ -45,16 +47,9 @@ export default function useStoryCreateModal({ onClose }: { onClose: () => void }
     setContentStep(step => step - 1);
   }
 
-  function resetImage() {
-    setImage(undefined);
-  }
-
-  function uploadStory() {
-    onClose();
-  }
-
   return {
     contentStep,
+    isImageExists: Boolean(image),
     stepHandler,
     inputImageStep,
     cropImageStep,

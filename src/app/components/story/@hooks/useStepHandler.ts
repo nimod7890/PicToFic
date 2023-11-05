@@ -8,6 +8,7 @@ type UseStepHandlerProps = {
   goNextStep: () => void;
   resetImage: () => void;
   uploadStory: () => void;
+  disabledNextStepButton: boolean;
 };
 
 export default function useStepHandler({
@@ -16,39 +17,42 @@ export default function useStepHandler({
   goNextStep,
   resetImage,
   uploadStory,
+  disabledNextStepButton,
 }: UseStepHandlerProps) {
   const handleBackButtonClick = () => {
     switch (contentStep) {
+      case ContentStep.InputImage:
+        break;
       case ContentStep.CropImage: {
         resetImage();
+        goPreviousStep();
         break;
       }
       case ContentStep.UploadStory: {
+        goPreviousStep();
         break;
       }
-      case ContentStep.InputImage:
-        return;
     }
-    goPreviousStep();
   };
 
   const handleRightButtonClick = () => {
     switch (contentStep) {
-      case ContentStep.UploadStory: {
-        uploadStory();
+      case ContentStep.InputImage:
         break;
-      }
       case ContentStep.CropImage: {
         goNextStep();
         break;
       }
-      case ContentStep.InputImage:
-        return;
+      case ContentStep.UploadStory: {
+        uploadStory();
+        break;
+      }
     }
   };
 
   return {
     contentStep,
+    disabledNextStepButton,
     onBackButtonClick: handleBackButtonClick,
     onRightButtonClick: handleRightButtonClick,
   };
