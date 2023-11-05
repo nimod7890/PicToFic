@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { UseImageCropType, createCroppedImage } from "../../@hooks/useImageCrop";
+import { UseImageCropType } from "../../@hooks/useImageCrop";
 import { Box, Stack } from "@mui/material";
 import { ImageFileType } from "../../@hooks/useStoryCreateModal";
 import StoryImage from "../../StoryImage";
@@ -44,7 +44,7 @@ const ImageCropBox = ({
       setImageSize({ width: image.width * scale, height: image.height * scale });
       setCropSize(cropSize);
       setScale(scale);
-      createCroppedImage({ scale, src: imageUrl, cropSize, onChangeImage: onChangeImage });
+      createCroppedImage();
     };
   }, [imageUrl]);
 
@@ -68,17 +68,53 @@ const ImageCropBox = ({
       window.removeEventListener("mousemove", handleDragging);
       window.removeEventListener("mouseup", handleDragEnd);
 
-      createCroppedImage({
-        src: imageUrl,
-        scale,
-        cropSize,
-        position,
-        onChangeImage: onChangeImage,
-      });
+      createCroppedImage();
     };
     window.addEventListener("mousemove", handleDragging);
     window.addEventListener("mouseup", handleDragEnd);
   };
+
+  function createCroppedImage() {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const image = new Image();
+    image.src = imageUrl;
+
+    // 크롭 영역 설정
+    canvas.width = cropSize;
+    canvas.height = cropSize;
+
+    // 이미지 로드 후 처리
+    image.onload = () => {
+      const scaledWidth = image.width * scale;
+      const scaledHeight = image.height * scale;
+      let dx, dy;
+      const dWidth = cropSize;
+      const dHeight = cropSize;
+
+      if (scaledWidth > scaledHeight) {
+        dx = -position.x / scale;
+        dy = 0;
+      } else {
+        dx = 0;
+        dy = -position.y / scale;
+      }
+
+      ctx?.drawImage(image, dx, dy, dWidth, dHeight, 0, 0, canvas.width, canvas.height);
+
+      canvas.toBlob(blob => {
+        if (blob) {
+          const croppedFile = new File([blob], "cropped-image.jpg", { type: "image/jpeg" });
+          const croppedImageUrl = URL.createObjectURL(croppedFile);
+
+          onChangeImage({
+            file: croppedFile,
+            imageUrl: croppedImageUrl,
+          });
+        }
+      }, "image/jpeg");
+    };
+  }
 
   return (
     <Box
